@@ -42,7 +42,7 @@
     [myDevice setBatteryMonitoringEnabled:YES];
     double batLevel = (float)[myDevice batteryLevel] * 100;
         
-    result = [CDVPluginResult resultWithLevel:CDVCommandLevel_OK messageAsString:[NSString stringWithFormat:@"%.0f",batLevel]];
+    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:[NSString stringWithFormat:@"%.0f",batLevel]];
     
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }

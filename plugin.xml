@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="hk.polaris.cordova.plugin.batterystatus"
+        id="hk.polaris.cordova.plugin.batterylevel"
         version="0.1.0">
 
-    <name>Battery Status</name>
+    <name>Battery level</name>
 
-    <description>Cordova plugin to get battery status on demand</description>
-    <repo>https://github.com/solo999/cordova-plugin-battery-status.git</repo>
-    <keywords>battery, status, onces, on-demand, right away, ios</keywords>
+    <description>Cordova plugin to get battery level on demand</description>
+    <repo>https://github.com/solo999/cordova-plugin-battery-level.git</repo>
+    <keywords>battery, status, level, once, on-demand, right away, ios</keywords>
     <license>Apache 2.0</license>
 
     <author>Bessonov Viacheslav</author>
@@ -17,21 +17,21 @@
         <engine name="cordova" version=">=3.0.0" />
     </engines>
 
-    <js-module src="www/battery.js" name="BatteryStatus">
-        <clobbers target="plugin.battery.status" />
-        <clobbers target="cordova.plugins.battery.status" />
+    <js-module src="www/batteryLevel.js" name="BatteryLevel">
+        <clobbers target="plugin.battery.level" />
+        <clobbers target="cordova.plugins.battery.level" />
     </js-module>
 
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="BatteryStatus">
-                <param name="ios-package" value="APPBattery"/>
+            <feature name="BatteryLevel">
+                <param name="ios-package" value="CDVBatteryLevel"/>
             </feature>
         </config-file>
 
-        <header-file src="src/ios/APPBattery.h" />
-        <source-file src="src/ios/APPBattery.m" />
+        <header-file src="src/ios/CDVBatteryLevel.h" />
+        <source-file src="src/ios/CDVBatteryLevel.m" />
     </platform>
 
 </plugin>

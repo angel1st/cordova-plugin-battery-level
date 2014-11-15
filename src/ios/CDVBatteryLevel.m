@@ -19,12 +19,32 @@
  under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import <Cordova/CDVPlugin.h>
+#import "CDVBatteryLevel.h"
+#import <Cordova/CDVAvailability.h>
 
-@interface APPBattery : CDVPlugin
+@implementation CDVBatteryLevel
 
-// Gets the battery status
-- (void) getBatteryStatus:(CDVInvokedUrlCommand *)command;
+#pragma mark -
+#pragma mark Plugin interface methods
+
+/**
+ * Gets the battery level.
+ *
+ * @param callback
+ *      The function to be exec as the callback
+ */
+- (void) getBatteryLevel:(CDVInvokedUrlCommand *)command
+{
+    CDVPluginResult* result;
+    
+    [[UIDevice currentDevice] setBatteryMonitoringEnabled:YES];
+    UIDevice *myDevice = [UIDevice currentDevice];
+    [myDevice setBatteryMonitoringEnabled:YES];
+    double batLevel = (float)[myDevice batteryLevel] * 100;
+        
+    result = [CDVPluginResult resultWithLevel:CDVCommandLevel_OK messageAsString:[NSString stringWithFormat:@"%.0f",batLevel]];
+    
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
 
 @end

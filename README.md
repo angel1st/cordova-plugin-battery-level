@@ -1,4 +1,4 @@
-cordova-plugin-battery-status
+cordova-plugin-battery-level
 =============================
 
 [Cordova][cordova] plugin to get battery level on demand for iOS.
@@ -19,7 +19,7 @@ The plugin can be installed from git repository.
 From master:
 ```bash
 # ~~ from master branch ~~
-cordova plugin add https://github.com/solo999/cordova-plugin-battery-status.git
+cordova plugin add https://github.com/solo999/cordova-plugin-battery-level.git
 ```
 
 ## ChangeLog
@@ -27,25 +27,25 @@ cordova plugin add https://github.com/solo999/cordova-plugin-battery-status.git
 
 
 ## Using the plugin
-The plugin creates the object `cordova.plugins.battery.status` with the following method:
+The plugin creates the object `cordova.plugins.battery.level` with the following method:
 
-[battery.status.get][get]
+[battery.level.get][get]
 
 ### Plugin initialization
 The plugin and its methods are not available before the *deviceready* event has been fired.
 
 ```javascript
 document.addEventListener('deviceready', function () {
-// cordova.plugins.battery.status is now available
+// cordova.plugins.battery.level is now available
 }, false);
 ```
 
-### Get the battery status
-The battery status can be accessed through the `battery.status.get` interface.<br>
+### Get the battery level
+The battery level can be accessed through the `battery.level.get` interface.<br>
 The method takes a callback function as its argument which will be called with the battery level. Optional the scope of the callback function ca be defined through a second argument.
 
 ```javascript
-cordova.plugins.battery.status.get(function (battLevel) {
+cordova.plugins.battery.level.get(function (battLevel) {
 // console.log('battery level: ' + battLevel);
 }, scope);
 ```
@@ -62,6 +62,6 @@ This software is released under the [Apache 2.0 License][apache2_license].
 [PGB]: http://docs.build.phonegap.com/en_US/index.html
 [PGB_plugin]: https://build.phonegap.com/plugins/1195
 [changelog]: CHANGELOG.md
-[get]: #get-the-battery-status
+[get]: #get-the-battery-level
 [apache2_license]: http://opensource.org/licenses/Apache-2.0
 

@@ -19,12 +19,12 @@
     under the License.
 */
 
-var BatteryStatus = function () {};
+var BatteryLevel = function () {};
 
-BatteryStatus.prototype = {
+BatteryLevel.prototype = {
 
     /**
-     * Gets the battery status.
+     * Gets the battery level.
      *
      * @param {Function} callback
      *      The function to be exec as the callback
@@ -32,14 +32,14 @@ BatteryStatus.prototype = {
      *      The callback function's scope
      */
     get: function (callback, scope) {
-        var fn = function (status) {
-            callback.call(scope || this, status);
+        var fn = function (level) {
+            callback.call(scope || this, level);
         };
 
-        cordova.exec(fn, null, 'BatteryStatus', 'getBatteryStatus', []);
+        cordova.exec(fn, null, 'BatteryLevel', 'getBatteryLevel', []);
     }
 };
 
-var plugin  = new BatteryStatus();
+var plugin  = new BatteryLevel();
 
 module.exports = plugin;

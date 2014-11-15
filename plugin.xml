@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="hk.polaris.cordova.plugin.batterystatus"
+        version="0.1.0">
+
+    <name>Battery Status</name>
+
+    <description>Cordova plugin to get battery status on demand</description>
+    <repo>https://github.com/solo999/cordova-plugin-battery-status.git</repo>
+    <keywords>battery, status, onces, on-demand, right away, ios</keywords>
+    <license>Apache 2.0</license>
+
+    <author>Bessonov Viacheslav</author>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/battery.js" name="BatteryStatus">
+        <clobbers target="plugin.battery.status" />
+        <clobbers target="cordova.plugins.battery.status" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="BatteryStatus">
+                <param name="ios-package" value="APPBattery"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/APPBattery.h" />
+        <source-file src="src/ios/APPBattery.m" />
+    </platform>
+
+</plugin>

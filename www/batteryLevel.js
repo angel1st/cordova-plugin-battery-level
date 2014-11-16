@@ -37,6 +37,22 @@ BatteryLevel.prototype = {
         };
 
         cordova.exec(fn, null, 'BatteryLevel', 'getBatteryLevel', []);
+    },
+    
+    /**
+     * Check if device is plugged in
+     *
+     * @param {Function} callback
+     *      The function to be exec as the callback
+     * @param {Object?} scope
+     *      The callback function's scope
+     */
+    isPluggedIn: function (callback, scope) {
+        var fn = function (badge) {
+            callback.call(scope || this, badge);
+        };
+
+        cordova.exec(fn, null, 'BatteryLevel', 'isPluggedIn', []);
     }
 };
 

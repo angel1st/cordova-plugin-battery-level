@@ -30,6 +30,7 @@ cordova plugin add https://github.com/solo999/cordova-plugin-battery-level.git
 The plugin creates the object `cordova.plugins.battery.level` with the following method:
 
 [battery.level.get][get]
+[battery.level.isPluggedIn][is-plugged-in]
 
 ### Plugin initialization
 The plugin and its methods are not available before the *deviceready* event has been fired.
@@ -47,6 +48,16 @@ The method takes a callback function as its argument which will be called with t
 ```javascript
 cordova.plugins.battery.level.get(function (battLevel) {
 // console.log('battery level: ' + battLevel);
+}, scope);
+```
+
+### Check if device is plugged in
+The isPluggedIn flag can be accessed through the `battery.level.isPluggedIn` interface.<br>
+The method takes a callback function as its argument which will be called with the isPluggedIn flag. Optional the scope of the callback function ca be defined through a second argument.
+
+```javascript
+cordova.plugins.battery.level.isPluggedIn(function (isPluggedIn) {
+// console.log('device is ' + isPluggedIn ? 'plugged in' : 'plugged out');
 }, scope);
 ```
 

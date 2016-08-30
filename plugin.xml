@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="hk.polaris.cordova.plugin.batterylevel"
-        version="0.2.0">
+        version="0.2.1">
 
     <name>Battery level</name>
 
@@ -34,4 +34,15 @@
         <source-file src="src/ios/CDVBatteryLevel.m" />
     </platform>
 
+	<platform name="android">      
+		<!-- register plugin -->      
+		<config-file parent="/*" target="res/xml/config.xml">        
+			<feature name="BatteryLevel">       
+				<param name="android-package" value="hk.polaris.cordova.plugin.BatteryLevel"/>    
+			</feature>                
+		</config-file> 
+		
+		<!-- add plugin source code -->      
+		<source-file src="src/android/BatteryLevel.java" target-dir="src/hk/polaris/cordova/plugin"/>
+	</platform>
 </plugin>

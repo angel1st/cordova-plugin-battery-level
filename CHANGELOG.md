@@ -1,5 +1,8 @@
 ## ChangeLog
 
+#### Version 0.2.1 (30.08.2016)
+- Added android version<br>
+
 #### Version 0.2.0 (16.11.2014)
 - Added isPluggedIn method to check if device is plugged in<br>
 

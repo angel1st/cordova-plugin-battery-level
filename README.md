@@ -11,6 +11,7 @@ cordova-plugin-battery-level
 
 ## Supported Platforms
 - __iOS__ *(including iOS8)*
+- __android__
 
 ## Installation
 The plugin can be installed from git repository.

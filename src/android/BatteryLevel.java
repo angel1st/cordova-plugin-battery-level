@@ -98,7 +98,7 @@ public class BatteryLevel extends CordovaPlugin {
 		}
 
         try {
-            obj.put("level", String(level + "%"));
+            obj.put("level", level + "%");
             obj.put("isPlugged", String.valueOf(isPlugged));
         } catch (JSONException e) {
             LOG.e(LOG_TAG, e.getMessage(), e);

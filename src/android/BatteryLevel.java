@@ -1,4 +1,4 @@
-package hk.polaris.cordova.plugin;
+package net.sensortronic.cordova.plugin;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;

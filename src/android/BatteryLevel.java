@@ -17,7 +17,9 @@ import android.os.Build.VERSION_CODES;
 public class BatteryLevel extends CordovaPlugin {
 
 	public static final String GET_BATTERY_LEVEL = "getBatteryLevel";
+	public static final String GET_BATTERY_STATUS = "getBatteryStatus";
 	public static final String IS_PLUGGED_IN = "isPluggedIn";
+	private static final String LOG_TAG = "BatteryManager";
 	
 	private CallbackContext mCallbackContext;
 
@@ -34,6 +36,13 @@ public class BatteryLevel extends CordovaPlugin {
 		else if(action.equals(IS_PLUGGED_IN)) {
 			mCallbackContext = callbackContext;
 			isPuggedIn();
+
+			return true;
+		}
+
+		else if(action.equals(GET_BATTERY_STATUS)) {
+			mCallbackContext = callbackContext;
+			getBatteryStatus();
 
 			return true;
 		}

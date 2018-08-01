@@ -1,7 +1,7 @@
-cordova-plugin-battery-level
+cordova-plugin-battery-level-ondemand
 =============================
 
-[Cordova][cordova] plugin to get battery level on demand for iOS.
+[Cordova][cordova] plugin to get battery status on demand.
 
 ## Overview
 1. [Supported Platforms](#supported-platforms)
@@ -20,7 +20,7 @@ The plugin can be installed from git repository.
 From master:
 ```bash
 # ~~ from master branch ~~
-cordova plugin add https://github.com/angel1st/cordova-plugin-battery-level.git
+cordova plugin add https://github.com/angel1st/cordova-plugin-battery-status-ondemand.git
 ```
 
 ## ChangeLog

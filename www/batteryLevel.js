@@ -21,7 +21,7 @@
 
 var BatteryLevel = function () {};
 
-BatteryLevel.prototype = {
+BatteryStatus.prototype = {
 
     /**
      * Gets the battery level.
@@ -31,12 +31,12 @@ BatteryLevel.prototype = {
      * @param {Object?} scope
      *      The callback function's scope
      */
-    get: function (callback, scope) {
+    level: function (callback, scope) {
         var fn = function (level) {
             callback.call(scope || this, level);
         };
 
-        cordova.exec(fn, null, 'BatteryLevel', 'getBatteryLevel', []);
+        cordova.exec(fn, null, 'BatteryStatus', 'getBatteryLevel', []);
     },
     
     /**
@@ -47,12 +47,12 @@ BatteryLevel.prototype = {
      * @param {Object?} scope
      *      The callback function's scope
      */
-    isPluggedIn: function (callback, scope) {
+    isPlugged: function (callback, scope) {
         var fn = function (badge) {
             callback.call(scope || this, badge);
         };
 
-        cordova.exec(fn, null, 'BatteryLevel', 'isPluggedIn', []);
+        cordova.exec(fn, null, 'BatteryStatus', 'isPluggedIn', []);
     },
 
     status: function (callback, scope) {
@@ -60,10 +60,10 @@ BatteryLevel.prototype = {
             callback.call(scope || this, badge);
         };
 
-        cordova.exec(fn, null, 'BatteryLevel', 'getBatteryStatus', []);
+        cordova.exec(fn, null, 'BatteryStatus', 'getBatteryStatus', []);
     }
 };
 
-var plugin  = new BatteryLevel();
+var plugin  = new BatteryStatus();
 
 module.exports = plugin;

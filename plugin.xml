@@ -17,7 +17,7 @@
         <engine name="cordova" version=">=3.0.0" />
     </engines>
 
-    <js-module src="www/batteryLevel.js" name="BatteryLevel">
+    <js-module src="www/batteryLevel.js" name="BatteryStatus">
         <clobbers target="cordova.plugins.battery" />
     </js-module>
 

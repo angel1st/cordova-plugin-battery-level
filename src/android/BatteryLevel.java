@@ -14,7 +14,7 @@ import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 
 
-public class BatteryLevel extends CordovaPlugin {
+public class BatteryStatus extends CordovaPlugin {
 
 	public static final String GET_BATTERY_LEVEL = "getBatteryLevel";
 	public static final String GET_BATTERY_STATUS = "getBatteryStatus";

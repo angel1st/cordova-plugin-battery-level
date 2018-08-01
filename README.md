@@ -20,7 +20,7 @@ The plugin can be installed from git repository.
 From master:
 ```bash
 # ~~ from master branch ~~
-cordova plugin add https://github.com/solo999/cordova-plugin-battery-level.git
+cordova plugin add https://github.com/angel1st/cordova-plugin-battery-level.git
 ```
 
 ## ChangeLog
@@ -32,6 +32,7 @@ The plugin creates the object `cordova.plugins.battery.level` with the following
 
 [battery.level.get][get]
 [battery.level.isPluggedIn][is-plugged-in]
+[battery.level.status][status]
 
 ### Plugin initialization
 The plugin and its methods are not available before the *deviceready* event has been fired.
@@ -62,11 +63,22 @@ cordova.plugins.battery.level.isPluggedIn(function (isPluggedIn) {
 }, scope);
 ```
 
+### Check battery status
+The third method returns and object `{level: batteryLevel, isPlugged: isDevicePlugged}`. Basically, this method provides two above methods information at once.
+It is available via `cordova.plugins.battery.level.status` interface.<br>
+The method takes a callback function as its argument which will return `status` object. Optional the scope of the callback function ca be defined through a second argument.
+
+```javascript
+cordova.plugins.battery.level.status(function (battStatus) {
+// console.log('battery status: ' + JSON.stringify(battStatus));
+}, scope);
+```
+
 ## License
 
 This software is released under the [Apache 2.0 License][apache2_license].
 
-© 2013-2014 Polaris Telematics Ltd (HK). All rights reserved
+© 2018 Angel Todorov. All rights reserved
 
 
 [cordova]: https://cordova.apache.org

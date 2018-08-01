@@ -1,4 +1,4 @@
-cordova-plugin-battery-level-ondemand
+cordova-plugin-battery-status-ondemand
 =============================
 
 [Cordova][cordova] plugin to get battery status on demand.

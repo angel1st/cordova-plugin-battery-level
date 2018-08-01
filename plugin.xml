@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="hk.polaris.cordova.plugin.batterylevel"
-        version="0.2.1">
+        id="net.sensortronic.cordova.plugin.batterylevel"
+        version="0.0.1">
 
     <name>Battery level</name>
 
     <description>Cordova plugin to get battery level on demand</description>
-    <repo>https://github.com/solo999/cordova-plugin-battery-level.git</repo>
+    <repo>https://github.com/angel1st/cordova-plugin-battery-level.git</repo>
     <keywords>battery, status, level, once, on-demand, right away, ios</keywords>
     <license>Apache 2.0</license>
 
-    <author>Bessonov Viacheslav</author>
+    <author>Angel Todorov</author>
 
     <engines>
         <engine name="cordova" version=">=3.0.0" />
@@ -38,11 +38,11 @@
 		<!-- register plugin -->      
 		<config-file parent="/*" target="res/xml/config.xml">        
 			<feature name="BatteryLevel">       
-				<param name="android-package" value="hk.polaris.cordova.plugin.BatteryLevel"/>    
+				<param name="android-package" value="net.sensortronic.cordova.plugin.BatteryLevel"/>    
 			</feature>                
 		</config-file> 
 		
 		<!-- add plugin source code -->      
-		<source-file src="src/android/BatteryLevel.java" target-dir="src/hk/polaris/cordova/plugin"/>
+		<source-file src="src/android/BatteryLevel.java" target-dir="src/net/sensortronic/cordova/plugin"/>
 	</platform>
 </plugin>

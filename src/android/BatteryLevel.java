@@ -67,4 +67,42 @@ public class BatteryLevel extends CordovaPlugin {
 
 		mCallbackContext.success(String.valueOf(isPlugged));
 	}
+
+	/**
+     * Creates a JSONObject with the current battery information
+     *
+     * @param batteryIntent the current battery information
+     * @return a JSONObject containing the battery status information
+     */
+    private void getBatteryStatus() {
+        JSONObject obj = new JSONObject();
+		// get level
+		Intent batteryIntentLevel = cordova.getActivity().registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+		int currentLevel = batteryIntentLevel.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+		int scale = batteryIntentLevel.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+		int level = -1;
+
+		// Error checking that probably isn't needed but I added just in case.
+		if (currentLevel >= 0 && scale > 0) {
+			level = (currentLevel * 100) / scale;
+		}
+
+		// get isPlugged
+		Intent batteryIntentPlugged = cordova.getActivity().registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+		int plugged = batteryIntentPlugged.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
+		
+		boolean isPlugged = (plugged == BatteryManager.BATTERY_PLUGGED_AC || plugged == BatteryManager.BATTERY_PLUGGED_USB);
+		
+		if (VERSION.SDK_INT > VERSION_CODES.JELLY_BEAN) {
+			isPlugged = (isPlugged || plugged == BatteryManager.BATTERY_PLUGGED_WIRELESS);
+		}
+
+        try {
+            obj.put("level", String(level + "%"));
+            obj.put("isPlugged", String.valueOf(isPlugged));
+        } catch (JSONException e) {
+            LOG.e(LOG_TAG, e.getMessage(), e);
+        }
+        mCallbackContext.success(obj);
+    }
 }

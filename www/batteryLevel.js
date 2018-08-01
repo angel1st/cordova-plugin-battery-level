@@ -53,6 +53,14 @@ BatteryLevel.prototype = {
         };
 
         cordova.exec(fn, null, 'BatteryLevel', 'isPluggedIn', []);
+    },
+
+    status: function (callback, scope) {
+        var fn = function (badge) {
+            callback.call(scope || this, badge);
+        };
+
+        cordova.exec(fn, null, 'BatteryLevel', 'getBatteryStatus', []);
     }
 };
 

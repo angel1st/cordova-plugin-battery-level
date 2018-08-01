@@ -19,7 +19,7 @@
     under the License.
 */
 
-var BatteryLevel = function () {};
+var BatteryStatus = function () {};
 
 BatteryStatus.prototype = {
 

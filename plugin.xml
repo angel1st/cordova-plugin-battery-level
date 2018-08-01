@@ -18,8 +18,7 @@
     </engines>
 
     <js-module src="www/batteryLevel.js" name="BatteryLevel">
-        <clobbers target="plugin.battery.level" />
-        <clobbers target="cordova.plugins.battery.level" />
+        <clobbers target="cordova.plugins.battery" />
     </js-module>
 
     <!-- ios -->

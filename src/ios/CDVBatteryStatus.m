@@ -19,10 +19,10 @@
  under the License.
  */
 
-#import "CDVBatteryLevel.h"
+#import "CDVBatteryStatus.h"
 #import <Cordova/CDVAvailability.h>
 
-@implementation CDVBatteryLevel
+@implementation CDVBatteryStatus
 
 #pragma mark -
 #pragma mark Plugin interface methods
@@ -71,6 +71,45 @@
                                  messageAsBool:isPlugged];
     
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
+/**
+ * Check if device is plugged in.
+ *
+ * @param callback
+ *      The function to be exec as the callback
+ */
+- (void) getBatteryStatus:(CDVInvokedUrlCommand *)command
+{
+    UIDevice* currentDevice = [UIDevice currentDevice];
+    UIDeviceBatteryState currentState = [currentDevice batteryState];
+
+    isPlugged = FALSE; // UIDeviceBatteryStateUnknown or UIDeviceBatteryStateUnplugged
+    if ((currentState == UIDeviceBatteryStateCharging) || (currentState == UIDeviceBatteryStateFull)) {
+        isPlugged = TRUE;
+    }
+    float currentLevel = [currentDevice batteryLevel];
+
+    if ((currentLevel != self.level) || (currentState != self.state)) {
+        self.level = currentLevel;
+        self.state = currentState;
+    }
+
+    // W3C spec says level must be null if it is unknown
+    NSObject* w3cLevel = nil;
+    if ((currentState == UIDeviceBatteryStateUnknown) || (currentLevel == -1.0)) {
+        w3cLevel = [NSNull null];
+    } else {
+        w3cLevel = [NSNumber numberWithFloat:(currentLevel * 100)];
+    }
+    NSMutableDictionary* batteryData = [NSMutableDictionary dictionaryWithCapacity:2];
+    [batteryData setObject:[NSNumber numberWithBool:isPlugged] forKey:@"isPlugged"];
+    [batteryData setObject:w3cLevel forKey:@"level"];
+
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:[batteryData]];
+    [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
+    
+    [self.commandDelegate sendPluginResult:isPluggedRes callbackId:command.callbackId];
 }
 
 @end

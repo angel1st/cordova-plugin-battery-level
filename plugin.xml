@@ -17,20 +17,20 @@
         <engine name="cordova" version=">=3.0.0" />
     </engines>
 
-    <js-module src="www/batteryLevel.js" name="BatteryStatus">
+    <js-module src="www/batteryStatus.js" name="BatteryStatus">
         <clobbers target="cordova.plugins.battery" />
     </js-module>
 
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="BatteryLevel">
-                <param name="ios-package" value="CDVBatteryLevel"/>
+            <feature name="BatteryStatus">
+                <param name="ios-package" value="CDVBatteryStatus"/>
             </feature>
         </config-file>
 
-        <header-file src="src/ios/CDVBatteryLevel.h" />
-        <source-file src="src/ios/CDVBatteryLevel.m" />
+        <header-file src="src/ios/CDVBatteryStatus.h" />
+        <source-file src="src/ios/CDVBatteryStatus.m" />
     </platform>
 
 	<platform name="android">      

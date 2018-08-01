@@ -1,5 +1,5 @@
 /*
- Copyright 2013-2014 Polaris Telematics Ltd (HK)
+ Copyright 2018 Angel Todorov
  
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
@@ -22,10 +22,10 @@
 #import <Foundation/Foundation.h>
 #import <Cordova/CDVPlugin.h>
 
-@interface CDVBatteryLevel : CDVPlugin
+@interface CDVBatteryStatus : CDVPlugin
 
 // Gets the battery level
-- (void) getBatteryLevel:(CDVInvokedUrlCommand *)command;
+- (void) getBatteryStatus:(CDVInvokedUrlCommand *)command;
 // Check if device is plugged in
 - (void) isPluggedIn:(CDVInvokedUrlCommand *)command;
 

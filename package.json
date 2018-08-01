@@ -1,6 +1,6 @@
 {
     "version": "0.2.0",
-    "name": "cordova-plugin-batterylevel",
+    "name": "cordova-plugin-battery-status-ondemand",
     "cordova_name": "BatteryLevel",
     "description": "Cordova plugin to get battery level on demand",
     "license": "MIT",

@@ -36,12 +36,12 @@
 	<platform name="android">      
 		<!-- register plugin -->      
 		<config-file parent="/*" target="res/xml/config.xml">        
-			<feature name="BatteryLevel">       
-				<param name="android-package" value="net.sensortronic.cordova.plugin.BatteryLevel"/>    
+			<feature name="BatteryStatus">       
+				<param name="android-package" value="net.sensortronic.cordova.plugin.BatteryStatus"/>    
 			</feature>                
 		</config-file> 
 		
 		<!-- add plugin source code -->      
-		<source-file src="src/android/BatteryLevel.java" target-dir="src/net/sensortronic/cordova/plugin"/>
+		<source-file src="src/android/BatteryStatus.java" target-dir="src/net/sensortronic/cordova/plugin"/>
 	</platform>
 </plugin>

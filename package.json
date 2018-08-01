@@ -1,0 +1,20 @@
+{
+    "version": "0.1.0",
+    "name": "cordova-plugin-batterylevel",
+    "cordova_name": "BatteryLevel",
+    "description": "Cordova plugin to get battery level on demand",
+    "license": "MIT",
+    "repo": "https://github.com/angel1st/cordova-plugin-battery-level.git",
+    "issue": "",
+    "keywords": [],
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "engines": [
+      {
+        "name": "cordova",
+        "version": ">=3.0.0"
+      }
+    ]
+  }
